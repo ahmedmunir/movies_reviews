@@ -1,0 +1,15 @@
+<h1>Search for an Actor</h1>
+
+<%= form_with(url: search_actors_path, method: :get, local: true) do |form| %>
+  <%= form.label :search, "Actor name:" %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<h2>Results:</h2>
+
+<ul>
+  <% @actors.each do |actor| %>
+    <li><%= actor.name %></li>
+  <% end %>
+</ul>

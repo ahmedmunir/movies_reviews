@@ -1,0 +1,28 @@
+<h1>Movies Overview</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Actors</th>
+      <th>Filming Locations</th>
+      <th>Countries</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.actors.map(&:name).join(", ") %></td>
+        <td><%= movie.filming_locations.map(&:location).join(", ") %></td>
+        <td><%= movie.countries.map(&:country).join(", ") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @movies %>
